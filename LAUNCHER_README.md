@@ -131,8 +131,8 @@ npm start      # Start the application
 
 Or build your own executable:
 ```bash
-npm install -g pkg
-pkg server.js --target node18-win-x64 --output myapp.exe
+npm run build
+npx @yao-pkg/pkg server.js --target node24-win-x64 --output myapp.exe
 ```
 
 ---
