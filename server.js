@@ -1,10 +1,33 @@
 const { execFile } = require('child_process');
+const fs = require('fs');
 const http = require('http');
+const os = require('os');
 const path = require('path');
+const { getAsset, isSea } = require('node:sea');
 const handler = require('serve-handler');
 
 const port = Number(process.env.PORT || 3000);
-const publicDir = path.join(__dirname, 'build');
+const publicDir = resolvePublicDir();
+
+function resolvePublicDir() {
+  if (!isSea()) return path.join(__dirname, 'build');
+
+  const assetRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'git-helper-'));
+  const manifest = JSON.parse(getAsset('__git_helper_assets.json', 'utf8'));
+
+  for (const entry of manifest) {
+    const destination = path.resolve(assetRoot, entry.path);
+    if (!destination.startsWith(`${assetRoot}${path.sep}`)) {
+      throw new Error(`Invalid embedded asset path: ${entry.path}`);
+    }
+
+    fs.mkdirSync(path.dirname(destination), { recursive: true });
+    fs.writeFileSync(destination, Buffer.from(getAsset(entry.key)));
+  }
+
+  process.on('exit', () => fs.rmSync(assetRoot, { recursive: true, force: true }));
+  return path.join(assetRoot, 'build');
+}
 
 const server = http.createServer((req, res) => {
   return handler(req, res, {

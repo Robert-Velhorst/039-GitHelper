@@ -7,7 +7,8 @@
     "dev": "vite --host 127.0.0.1 --port 3000",
     "build": "vite build",
     "serve": "node server.js",
-    "package:windows": "npm run build && pkg server.js --target node24-win-x64 --output myapp.exe"
+    "build:server": "esbuild server.js --bundle --platform=node --target=node26 --format=cjs --outfile=dist/server.cjs",
+    "package:windows": "npm run build && npm run build:server && node scripts/build-windows-sea.cjs && powershell.exe -NoProfile -NonInteractive -File scripts/compress-windows-exe.ps1 myapp.exe myapp.exe.zip"
   },
   "keywords": [],
   "author": "",
@@ -36,16 +37,11 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^6.1.2",
-    "@yao-pkg/pkg": "^6.23.0",
+    "esbuild": "^0.28.2",
     "vite": "^8.3.4"
   },
   "packageManager": "npm@12.2.0",
   "engines": {
-    "node": "^24.22.0 || ^26.12.0"
-  },
-  "pkg": {
-    "assets": [
-      "build/**/*"
-    ]
+    "node": "^26.12.0"
   }
 }

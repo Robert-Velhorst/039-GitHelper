@@ -5,8 +5,8 @@ A React-based web application for uploading files to GitHub repositories with su
 ## Quick Start
 
 ### Option 1: Double-Click Executable (Windows)
-1. Download `myapp.exe` from the repository
-2. Double-click to run
+1. Download `myapp.exe.zip` from the repository and extract `myapp.exe`
+2. Double-click the extracted executable
 3. Browser opens automatically to `http://localhost:3000`
 4. Login with your GitHub token and start uploading!
 
@@ -16,7 +16,7 @@ A React-based web application for uploading files to GitHub repositories with su
 git clone https://github.com/Noodzakelijk-Online/039-GitHelper.git
 cd 039-GitHelper
 
-# Requires Node.js 24.22 LTS or Node.js 26.12 Current and npm 12.2.0
+# Requires Node.js 26.12.0 and npm 12.2.0
 # Install dependencies
 npm install
 
@@ -112,10 +112,10 @@ When you upload a file larger than 35MB, the tool **automatically**:
 
 ```
 039-GitHelper/
-├── myapp.exe              # Windows executable (double-click to run)
+├── myapp.exe.zip          # Compressed Node 26 Windows executable
 ├── START_GIT_HELPER.bat   # Windows batch launcher
 ├── start_git_helper.sh    # Linux/Mac shell launcher
-├── server.js              # Node.js server for the executable
+├── server.js              # Node.js server bundled into the Windows executable
 ├── package.json           # Dependencies and scripts
 ├── build/                 # Production build files
 │   ├── index.html
