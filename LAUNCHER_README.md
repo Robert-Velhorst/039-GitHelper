@@ -5,7 +5,7 @@ This Git Helper tool includes multiple **noob-friendly** ways to start the appli
 ## 📁 Launcher Options
 
 ### Option 1: Windows Executable (Recommended for Windows)
-- **`myapp.exe`** - Standalone executable, no Node.js required!
+- **`myapp.exe.zip`** - Compressed standalone executable; extract `myapp.exe` before launching it. No Node.js is required.
 - Just double-click and it works!
 
 ### Option 2: Batch Script (Windows)
@@ -18,11 +18,12 @@ This Git Helper tool includes multiple **noob-friendly** ways to start the appli
 
 ## 🎯 How to Use
 
-### Using myapp.exe (Easiest - Windows Only):
-1. **Double-click** `myapp.exe`
-2. Browser opens automatically to `http://localhost:3000`
-3. Login with your GitHub token
-4. Start uploading files!
+### Using myapp.exe (Windows Only):
+1. Extract `myapp.exe` from `myapp.exe.zip`
+2. **Double-click** the extracted `myapp.exe`
+3. Browser opens automatically to `http://localhost:3000`
+4. Login with your GitHub token
+5. Start uploading files!
 
 **Note:** No installation required! The exe includes everything needed.
 
@@ -59,8 +60,7 @@ All launchers provide access to these features:
 - **None!** Just double-click and run.
 
 ### For Batch/Shell Scripts:
-- **Node.js** (version 14 or higher)
-- **npm** (usually comes with Node.js)
+- **Node.js 26.12.0** and **npm 12.2.0** for the source launchers
 - **Internet connection** (for first-time dependency installation)
 
 ### Installation Links:
@@ -73,10 +73,11 @@ All launchers provide access to these features:
 ## 🎮 First-Time Usage
 
 ### With myapp.exe:
-1. **Double-click** `myapp.exe`
-2. **Browser opens** automatically
-3. **Login** with GitHub token
-4. **Done!**
+1. Extract `myapp.exe` from `myapp.exe.zip`
+2. **Double-click** the extracted `myapp.exe`
+3. **Browser opens** automatically
+4. **Login** with GitHub token
+5. **Done!**
 
 ### With Scripts:
 1. **Extract** the Git Helper files to a folder
@@ -131,8 +132,8 @@ npm start      # Start the application
 
 Or build your own executable:
 ```bash
-npm install -g pkg
-pkg server.js --target node18-win-x64 --output myapp.exe
+npm run build
+npm run package:windows
 ```
 
 ---
@@ -141,7 +142,7 @@ pkg server.js --target node18-win-x64 --output myapp.exe
 
 | Method | Requires Node.js | First Run Time | Subsequent Runs |
 |--------|------------------|----------------|-----------------|
-| myapp.exe | ❌ No | Instant | Instant |
+| myapp.exe (extracted from ZIP) | ❌ No | Instant | Instant |
 | Batch/Shell | ✅ Yes | 2-3 minutes | ~5 seconds |
 | npm start | ✅ Yes | 2-3 minutes | ~5 seconds |
 
