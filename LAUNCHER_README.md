@@ -60,7 +60,7 @@ All launchers provide access to these features:
 - **None!** Just double-click and run.
 
 ### For Batch/Shell Scripts:
-- **Node.js 26.12.0** and **npm 12.2.0** for the source launchers
+- **Node.js 26.12.0** and **npm 12.2.1** for the source launchers
 - **Internet connection** (for first-time dependency installation)
 
 ### Installation Links:
