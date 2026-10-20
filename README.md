@@ -16,7 +16,7 @@ A React-based web application for uploading files to GitHub repositories with su
 git clone https://github.com/Noodzakelijk-Online/039-GitHelper.git
 cd 039-GitHelper
 
-# Requires Node.js 26.12.0 and npm 12.2.0
+# Requires Node.js 26.12.0 and npm 12.2.1
 # Install dependencies
 npm install
 
